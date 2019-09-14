@@ -1,0 +1,45 @@
+<!-- Moneda -->
+<div
+  [formGroup]="datos">
+  <h2> Seleccionar una moneda</h2>
+  <h5 style="margin-top: -20px;">(desde un archivo JSON)</h5>
+
+  <!-- Moneda -->
+  <mat-form-field
+    appearance="fill">
+    <mat-label>Moneda</mat-label>
+    <mat-select
+      formControlName="moneda"
+      [(value)]="moneda.value">
+      <mat-option
+        *ngFor="let mon of monedasOpciones"
+        [value]="mon.id"
+        required>
+        {{ mon.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!-- Pais -->
+<div
+  [formGroup]="datos">
+  <h2> Seleccionar un País</h2>
+  <h5 style="margin-top: -20px;">(desde una API)</h5>
+
+  <!-- Pais -->
+  <mat-form-field
+    appearance="fill">
+    <mat-label>País</mat-label>
+    <mat-select
+      formControlName="pais"
+      [(value)]="pais.value">
+      <mat-option
+        *ngFor="let pai of paisesOpciones"
+        [value]="pai.alpha2Code"
+        required>
+        {{ pai.name +'('+ pai.alpha2Code +')' }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
